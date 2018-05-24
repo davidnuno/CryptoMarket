@@ -10,6 +10,9 @@ public class Currency {
     @SerializedName("asset_id")
     public String assetId;
 
+    @SerializedName("name")
+    public String name;
+
     /**
      * First trade price inside period range.
      */
@@ -21,4 +24,10 @@ public class Currency {
      */
     @SerializedName("price_close")
     public double priceClose;
+
+    /**
+     * Boolean value; true for cryptocurrency assets, false otherwise.
+     */
+    @SerializedName("type_is_crypto")
+    public boolean isCyrpto;
 }

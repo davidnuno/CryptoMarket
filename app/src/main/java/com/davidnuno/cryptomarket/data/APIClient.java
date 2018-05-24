@@ -8,12 +8,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 class APIClient {
 
-    public static Retrofit getRetrofit(String url) {
+    private static Retrofit retrofit = null;
+
+    public static Retrofit getClient(String url) {
         Gson gson = new GsonBuilder().setLenient().create();
 
-        return new Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(url)
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .build();
+        }
+
+        return retrofit;
     }
 }
