@@ -8,18 +8,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 class APIClient {
 
+    public static final String baseUrl = "https://rest.coinapi.io/";
+
     private static Retrofit retrofit = null;
 
-    public static Retrofit getClient(String url) {
+    public static Retrofit getClient() {
         Gson gson = new GsonBuilder().setLenient().create();
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl(url)
+                    .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
         }
-
         return retrofit;
     }
 }
