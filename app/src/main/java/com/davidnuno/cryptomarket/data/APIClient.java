@@ -6,9 +6,9 @@ import com.google.gson.GsonBuilder;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-class APIClient {
+public class APIClient {
 
-    public static final String baseUrl = "https://rest.coinapi.io/";
+    private static final String baseUrl = "https://rest.coinapi.io/";
 
     private static Retrofit retrofit = null;
 
